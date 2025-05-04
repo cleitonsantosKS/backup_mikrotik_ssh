@@ -36,14 +36,15 @@ sorteia_passagem()
 import time
 import paramiko
 import os
-
 def exportar_ssh(ip, nome_host, usuario, senha):
     try:
         data_atual = time.strftime("%Y-%m-%d_%H-%M-%S")
+        data_diretorio = data_atual.split('_')[0]  # Pega só a data (YYYY-MM-DD)
         nome_arquivo = f"{nome_host}_export_{data_atual}"
+        pasta_backup = f"./backup_{data_diretorio}"
 
-        if not os.path.exists('./exports'):
-            os.makedirs('./exports')
+        if not os.path.exists(pasta_backup):
+            os.makedirs(pasta_backup)
 
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -55,17 +56,16 @@ def exportar_ssh(ip, nome_host, usuario, senha):
 
         output = '\n'.join(line.strip() for line in output.splitlines() if line.strip())
 
-        with open(f'./exports/{nome_arquivo}.backup', 'w') as file:
+        with open(f'{pasta_backup}/{nome_arquivo}.backup', 'w') as file:
             file.write(output)
 
-        print(f"Exportação via SSH concluída. Arquivo salvo como {nome_arquivo}.backup")
-
-        #time.sleep(2)
+        print(f"Exportação via SSH concluída. Arquivo salvo como {nome_arquivo}.backup na pasta {pasta_backup}")
 
         ssh.close()
 
     except Exception as e:
         print(f"Erro ao exportar via SSH: {e}")
+
 
 def obter_hosts_do_arquivo(nome_arquivo):
     hosts = []
