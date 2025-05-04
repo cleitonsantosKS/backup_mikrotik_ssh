@@ -1,10 +1,20 @@
-📦 Script de Backup Mikrotik via SSH
+# 📦 Script de Backup Mikrotik via SSH
 
-Este script realiza o backup da configuração de dispositivos Mikrotik conectando-se via SSH e exportando o conteúdo para arquivos .backup. Ele suporta entrada manual ou leitura automatizada a partir de arquivos hosts.txt e usuario_senha.txt.
-✅ Requisitos
+Este script realiza o **backup da configuração de dispositivos Mikrotik** conectando-se via **SSH** e exportando o conteúdo para arquivos `.backup`.  
+Ele permite entrada manual ou leitura automatizada a partir dos arquivos `hosts.txt` e `usuario_senha.txt`.
 
-Antes de rodar o script, instale as seguintes dependências:
-```
+---
+
+## ✅ Requisitos
+
+Este script requer Python 3.x e utiliza as seguintes bibliotecas:
+
+- `paramiko` (precisa ser instalada)
+- `random` e `time` (inclusas na biblioteca padrão do Python)
+
+Instale a dependência externa com:
+
+```bash
 pip install paramiko
 ```
 📁 Estrutura Esperada
