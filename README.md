@@ -12,9 +12,10 @@ pip install paramiko
     hosts.txt: lista de dispositivos no formato nome_host,ip
 
     Exemplo:
-
+'''
 mikrotik1,192.168.88.1
 mikrotik2,192.168.88.2
+'''
 
 usuario_senha.txt: credenciais no formato usuario,senha
 
