@@ -52,7 +52,7 @@ Ao iniciar, o script exibe aleatoriamente uma mensagem bíblica motivacional.
 
 Feito por Cleiton Santos
 
-### 🔄 Bônus: Automatizando com Service no Linux
+# 🔄 Bônus: Automatizando com Service no Linux
 
 Você pode configurar este script para ser executado automaticamente a cada 24 horas usando o systemd no Linux. Siga os passos:
 
